@@ -1,26 +1,11 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from routers import users
+
 
 app = FastAPI()
 
-class User(BaseModel):
-    username: str
-    email: str
-    password: str
-    id: int
-    firstName: str
-    lastName: str
-    #friends:
-    #events:
-
+app.include_router(users.router)
 
 @app.get("/")
 def index():
-    return "hello potluck!"
-
-@app.post("/users/register")
-def register_user(user: User):
-
-    # TODO: save to DB later
-
-    return {"message": "User registered", "user": user.username}
+    return {"message": "hello potluck!"}
