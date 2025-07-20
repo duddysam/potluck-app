@@ -6,4 +6,4 @@ class UserCreate(BaseModel):
     username: str
     email: EmailStr
     password: str # TODO: Hash later
-    # TODO: add id
+    id: int
