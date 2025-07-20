@@ -5,17 +5,21 @@ from datetime import datetime
 class EventCreate(BaseModel):
     name: str
     date: datetime
-    host_id: int
     capacity: int
+    
+    
+class Event(EventCreate):
     id: int
-    # guest_list
-    # comments
-    # dishes
+    host_id: int
 
 class CommentCreate(BaseModel):
+    text: str
+    
+
+class Comment(CommentCreate):
     id: int
     event_id: int
-    text: str
-    date: datetime
+    timestamp: datetime
     posted_by: int
+    
 
